@@ -11,7 +11,7 @@ Firstly, the microservice needs to be run (which will trigger the youtube_data_a
 
 A virtual environment needs to be created :
 
-> `py -m venv env ` 
+> `py -m venv env `   
 > `.\env\Scripts\activate`
 
 Dependencies needs to be installed :

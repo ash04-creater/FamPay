@@ -45,17 +45,24 @@ def search_video(key):
     videos=session.query(VideoDetails)
 
     list_key=set(key.split())
+    lower_list_key= list(map(lambda x:x.lower(), list_key))
 
     score_array = []
     for video in videos:
         curr_score = 0
+
         list_title = video.title.split()
-        for word in list_title:
-            if len(word)> 2 and word in list_key:
+        lower_list_title= list(map(lambda x:x.lower(), list_title))
+
+        for word in lower_list_title:
+            if len(word)> 2 and word in lower_list_key:
                 curr_score += 1
+
         list_desc = video.description.split()
-        for word in list_desc:
-            if len(word)> 2 and word in list_key:
+        lower_list_desc= list(map(lambda x:x.lower(), list_desc))
+
+        for word in lower_list_desc:
+            if len(word)> 2 and word in lower_list_key:
                 curr_score += 1
         score_array.append(curr_score)
     
